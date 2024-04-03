@@ -38,7 +38,7 @@ body {
   background-color: var(--bg-grey);
 }
 
-.container{
+.container {
   max-width: 1186px;
 }
 
@@ -47,6 +47,15 @@ body {
     width: 50px;
     height: 50px;
   }
+}
+
+.text-grey {
+  color: var(--txt-grey);
+}
+
+.social-icon {
+  width: 16px;
+  height: 16px;
 }
 
 /* Header */
@@ -75,24 +84,71 @@ body {
 
 // main
 
+.table-time {
+  margin-left: 7px;
+}
+
+.add-client-btn {
+  border: 1px solid var(--firm);
+  padding: 12.5px 26.5px;
+
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  color: var(--firm);
+}
+
+.add-client {
+  margin-right: 10px;
+}
+
 .main {
-  padding: 40px 20px;
+  &__container {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
 
   &__title {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--black);
+
     margin-bottom: 29px;
+    align-self: flex-start;
   }
 
   .table {
-    &__head{
-      padding: 8px 20px;
-      .table__head-column {
+    margin-bottom: 40px;
+
+    &__head {
+      .table__head-cell {
         background-color: transparent;
         color: var(--txt-grey);
         font-weight: 400;
         max-height: 33px;
-        padding: 0;
+        padding: 8px 20px;
+      }
+    }
+
+    &__body {
+      &-cell {
+        padding: 20px;
+      }
+
+      &-btn {
+        border: none;
+        background-color: transparent;
+
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 14px;
+        color: var(--black);
       }
     }
   }
 }
-
