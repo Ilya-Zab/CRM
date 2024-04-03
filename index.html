@@ -7,12 +7,36 @@
   <title>CRM</title>
   <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/style.scss">
-  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js" defer></script>
   <script type="module" src="./js/main.js" defer></script>
 </head>
 
 <body>
   <div id="app">
+    <main class="main">
+      <div class="container">
+        <h1 class="main__title">
+          Клиенты
+        </h1>
+
+        <table class="main__table table">
+          <thead class="table__head">
+            <tr class="table__head-row">
+              <th class="table__head-column">ID</th>
+              <th class="table__head-column">Фамилия Имя Отчество</th>
+              <th class="table__head-column">Дата и время создания</th>
+              <th class="table__head-column">Последние изменения</th>
+              <th class="table__head-column">Контакты</th>
+              <th class="table__head-column">Действия</th>
+            </tr>
+          </thead>
+          <tbody class="table__body">
+            
+          </tbody>
+        </table>
+
+      </div>
+    </main>
   </div>
 </body>
 

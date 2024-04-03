@@ -2,7 +2,7 @@ import { el, mount } from "redom";
 
 const root = document.getElementById('app');
 
-createHeader(root);
+// createHeader(root);
 
 function createHeader(root) {
   const header = el("header", {
