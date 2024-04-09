@@ -2,8 +2,10 @@
   --green: #34c759;
   --orange: #e6b127;
   --red: #f06a4d;
+  --red-active: #ff2f00;
   --firm: #9873ff;
   --firm-opacity: rgba(152, 115, 255, .5);
+  --red-opacity: rgba(240, 106, 77, .5);
   --hover: #b89eff;
   --grey: #c8c5d1;
   --txt-grey: #b0b0b0;
@@ -11,7 +13,8 @@
   --white: #fff;
   --bg-grey: #f5f5f5;
   --active: #8052ff;
-  --focus-shadow: 0 0 0 0.25rem var(--firm-opacity);
+  --focus-shadow-firm: 0 0 0 0.25rem var(--firm-opacity);
+  --focus-shadow-red: 0 0 0 0.25rem var(--red-opacity)
 }
 
 :root {
@@ -77,10 +80,92 @@ ul {
 .social-list {
   gap: 6px;
 
-  &__icon {
+  &__link {
     width: 16px;
     height: 16px;
+
+    svg {
+      .social-svg_path {
+        fill: var(--firm);
+        opacity: .7;
+        transition: all ease-in-out .1s;
+      }
+    }
   }
+
+  &__link:hover {
+    svg {
+      .social-svg_path {
+        fill: var(--firm);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__link:active {
+    svg {
+      .social-svg_path {
+        fill: var(--active);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.filter-btn {
+  display: flex;
+  background-color: transparent;
+  color: var(--txt-grey);
+  font-weight: 400;
+  font-size: 12px;
+  border: none;
+  align-items: center;
+  display: block;
+}
+
+.filter-arrow-wrapper {
+  color: var(--firm);
+}
+
+.action-btn {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--black);
+  padding: 3px;
+  transition: color ease-in-out .1s;
+}
+
+.change-button_color:hover {
+  color: var(--hover);
+}
+
+.change-button_color:active {
+  color: var(--active);
+}
+
+.change-button:focus {
+  color: var(--bs-btn-hover-color);
+  background-color: var(--white);
+  border: none;
+  outline: 0;
+  box-shadow: var(--focus-shadow-firm)
+}
+
+.delete-button_color:hover {
+  color: var(--red);
+}
+
+.delete-button_color:active {
+  color: var(--red-active);
+}
+
+.delete-button:focus {
+  color: var(--bs-btn-hover-color);
+  background-color: var(--white);
+  border: none;
+  outline: 0;
+  box-shadow: var(--focus-shadow-red)
 }
 
 .btn {
@@ -114,7 +199,7 @@ ul {
   background-color: var(--hover);
   border-color: var(--firm);
   outline: 0;
-  box-shadow: var(--focus-shadow)
+  box-shadow: var(--focus-shadow-firm)
 }
 
 .add-btn {
@@ -200,16 +285,19 @@ ul {
   }
 
   &__body {
-    height: 300px;
-  }
 
-    td {
-      padding: 20px;
-      font-size: 14px;
-      max-height: 10px;
-    }
-
-    &__btn {
-      padding: 0;
+    tr {
+      border-bottom: 1px solid var(--grey);
     }
   }
+
+  td {
+    padding: 20px;
+    font-size: 14px;
+    height: 60px;
+  }
+
+  &__btn {
+    padding: 0;
+  }
+}
