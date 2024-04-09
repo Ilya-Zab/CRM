@@ -3,12 +3,15 @@
   --orange: #e6b127;
   --red: #f06a4d;
   --firm: #9873ff;
+  --firm-opacity: rgba(152, 115, 255, .5);
   --hover: #b89eff;
   --grey: #c8c5d1;
   --txt-grey: #b0b0b0;
   --black: #333;
   --white: #fff;
   --bg-grey: #f5f5f5;
+  --active: #8052ff;
+  --focus-shadow: 0 0 0 0.25rem var(--firm-opacity);
 }
 
 :root {
@@ -40,6 +43,12 @@ body {
   background-color: var(--bg-grey);
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 // End Root
 
 // Components
@@ -66,6 +75,8 @@ body {
 }
 
 .social-list {
+  gap: 6px;
+
   &__icon {
     width: 16px;
     height: 16px;
@@ -77,6 +88,7 @@ body {
   font-family: var(--font-family);
   font-size: 14px;
   background-color: transparent;
+  align-items: center;
 }
 
 .btn-primary {
@@ -85,6 +97,55 @@ body {
   font-weight: 600;
   color: var(--firm);
   border-radius: 0;
+}
+
+.btn-primary:hover {
+  background-color: var(--hover);
+  border-color: var(--firm);
+}
+
+.btn.btn-primary:active {
+  background-color: var(--active);
+  border-color: var(--firm);
+}
+
+.btn-primary:focus-visible {
+  color: var(--bs-btn-hover-color);
+  background-color: var(--hover);
+  border-color: var(--firm);
+  outline: 0;
+  box-shadow: var(--focus-shadow)
+}
+
+.add-btn {
+  svg {
+    transition: .15s ease-in-out fill;
+    fill: var(--firm);
+  }
+}
+
+.add-btn:hover {
+  svg {
+    fill: var(--white);
+  }
+}
+
+.add-btn:active {
+  svg {
+    fill: var(--white);
+  }
+}
+
+.add-btn:focus-visible {
+  svg {
+    fill: var(--white);
+  }
+}
+
+.add-btn:disabled {
+  svg {
+    fill: var(--bs-btn-disabled-border-color);
+  }
 }
 
 // End Components
@@ -129,23 +190,26 @@ body {
   }
 
   &__head {
-    .table__head-cell {
+    th {
       background-color: transparent;
       color: var(--txt-grey);
       font-weight: 400;
       padding: 8px 20px;
+      font-size: 12px;
     }
   }
 
   &__body {
-    &-cell {
+    height: 300px;
+  }
+
+    td {
       padding: 20px;
+      font-size: 14px;
+      max-height: 10px;
     }
 
-    &-btn {
-      border: none;
-      background-color: transparent;
-      color: var(--black);
+    &__btn {
+      padding: 0;
     }
   }
-}
