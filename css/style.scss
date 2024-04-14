@@ -84,12 +84,10 @@ ul {
   &__link {
     width: 16px;
     height: 16px;
+    position: relative;
 
     svg {
-      box-sizing: content-box;
-      padding: 1px;
-
-      .social-svg_path {
+      path {
         fill: var(--firm);
         opacity: .7;
         transition: all ease-in-out .1s;
@@ -99,16 +97,32 @@ ul {
 
   &__link:hover {
     svg {
-      .social-svg_path {
+      path {
         fill: var(--firm);
         opacity: 1;
       }
+    }
+
+    .popup {
+      visibility: visible;
     }
   }
 
   &__link:active {
     svg {
-      .social-svg_path {
+      path {
+        fill: var(--active);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__link:focus-visible {
+    outline-offset: 5px;
+    outline-color: var(--active);
+
+    svg {
+      path {
         fill: var(--active);
         opacity: 1;
       }
@@ -143,12 +157,19 @@ ul {
   border: none;
   align-items: center;
   display: block;
+  transition: color .15s ease-in-out;
+
+  &__text {
+    margin-right: 3px;
+  }
 }
 
 .sort-btn:hover {
-  .sort-arrow-wrapper {
-    color: var(--hover);
-  }
+  color: var(--firm);
+}
+
+.sort-btn:active {
+  color: var(--active);
 }
 
 .sort-btn:focus-visible {
@@ -167,36 +188,43 @@ ul {
   transition: color ease-in-out .1s;
 }
 
-.change-button_color:hover {
+.change-button {
+  border: none;
+  outline: none;
+}
+
+.change-button:hover {
   color: var(--hover);
 }
 
-.change-button_color:active {
+.btn.change-button:active,
+.change-button.loading {
   color: var(--active);
 }
 
 .change-button:focus-visible {
   color: var(--bs-btn-hover-color);
   background-color: var(--white);
-  padding: 0;
-  border: none;
-  outline: 0;
   box-shadow: var(--focus-shadow-firm)
 }
 
-.delete-button_color:hover {
+.delete-button {
+  border: none;
+  outline: none;
+}
+
+.delete-button:hover {
   color: var(--red);
 }
 
-.delete-button_color:active {
+.btn.delete-button:active,
+.delete-button.loading {
   color: var(--red-active);
 }
 
 .delete-button:focus-visible {
   color: var(--bs-btn-hover-color);
   background-color: var(--white);
-  border: none;
-  outline: 0;
   box-shadow: var(--focus-shadow-red)
 }
 
@@ -265,6 +293,46 @@ ul {
   }
 }
 
+.link-loader {
+  display: none;
+  animation: rotate 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.popup {
+  content: "+7 (985) 443-00-00";
+  position: absolute;
+  left: 50%;
+  top: -50px;
+  transform: translateX(-50%);
+  background-color: var(--black);
+  padding: 7px 14px;
+  color: var(--white);
+  text-wrap: nowrap;
+  visibility: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    left: 50%;
+    top: 25px;
+    transform: translateX(-50%) rotate(45deg);
+    background-color: var(--black);
+  }
+}
+
+
 // End Components
 
 /* Header */
@@ -331,5 +399,15 @@ ul {
 
   &__btn {
     padding: 0;
+
+    &.loading {
+      img {
+        display: none;
+      }
+
+      .link-loader {
+        display: inline-block;
+      }
+    }
   }
 }
