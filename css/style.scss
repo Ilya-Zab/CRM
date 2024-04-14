@@ -85,7 +85,7 @@ ul {
     height: 16px;
 
     svg {
-      .social-svg_path {
+      path {
         fill: var(--firm);
         opacity: .7;
         transition: all ease-in-out .1s;
@@ -95,7 +95,7 @@ ul {
 
   &__link:hover {
     svg {
-      .social-svg_path {
+      path {
         fill: var(--firm);
         opacity: 1;
       }
@@ -104,7 +104,19 @@ ul {
 
   &__link:active {
     svg {
-      .social-svg_path {
+      path {
+        fill: var(--active);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__link:focus-visible {
+    outline-offset: 5px;
+    outline-color: var(--active);
+
+    svg {
+      path {
         fill: var(--active);
         opacity: 1;
       }
@@ -136,35 +148,43 @@ ul {
   transition: color ease-in-out .1s;
 }
 
-.change-button_color:hover {
+.change-button {
+  border: none;
+  outline: none;
+}
+
+.change-button:hover {
   color: var(--hover);
 }
 
-.change-button_color:active {
+.btn.change-button:active,
+.change-button.loading {
   color: var(--active);
 }
 
-.change-button:focus {
+.change-button:focus-visible {
   color: var(--bs-btn-hover-color);
   background-color: var(--white);
-  border: none;
-  outline: 0;
   box-shadow: var(--focus-shadow-firm)
 }
 
-.delete-button_color:hover {
+.delete-button {
+  border: none;
+  outline: none;
+}
+
+.delete-button:hover {
   color: var(--red);
 }
 
-.delete-button_color:active {
+.btn.delete-button:active,
+.delete-button.loading {
   color: var(--red-active);
 }
 
-.delete-button:focus {
+.delete-button:focus-visible {
   color: var(--bs-btn-hover-color);
   background-color: var(--white);
-  border: none;
-  outline: 0;
   box-shadow: var(--focus-shadow-red)
 }
 
@@ -230,6 +250,21 @@ ul {
 .add-btn:disabled {
   svg {
     fill: var(--bs-btn-disabled-border-color);
+  }
+}
+
+.link-loader {
+  display: none;
+  animation: rotate 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }
 
@@ -299,5 +334,15 @@ ul {
 
   &__btn {
     padding: 0;
+
+    &.loading {
+      img {
+        display: none;
+      }
+
+      .link-loader {
+        display: inline-block;
+      }
+    }
   }
 }
