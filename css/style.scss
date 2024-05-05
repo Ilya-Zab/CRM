@@ -490,9 +490,19 @@ ul {
   }
 
   &__select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     background-color: #e7e5eb;
     border: 2px solid var(--grey);
     font-size: 12px;
+    outline: none;
+    border-right: none;
+  }
+
+  &__select:focus-visible { 
+    outline-color: none!important;
+    border-color: red;
   }
 
   &__footer {
