@@ -204,8 +204,7 @@ ul {
   color: var(--active);
 }
 
-.change-button:focus-visible,
-.change-button:focus {
+.change-button:focus-visible {
   color: var(--bs-btn-hover-color);
   background-color: var(--white);
   box-shadow: var(--focus-shadow-firm)
@@ -220,8 +219,7 @@ ul {
   color: var(--red);
 }
 
-.delete-button:focus-visible,
-.delete-button:focus {
+.delete-button:focus-visible {
   color: var(--bs-btn-hover-color);
   background-color: var(--white);
   box-shadow: var(--focus-shadow-red)
@@ -266,8 +264,7 @@ ul {
   border-color: var(--firm) !important;
 }
 
-.btn-primary:focus-visible,
-.btn-primary:focus {
+.btn-primary:focus-visible {
   color: var(--bs-btn-hover-color);
   background-color: var(--hover);
   border-color: var(--firm);
@@ -299,8 +296,7 @@ ul {
   }
 }
 
-.add-btn:focus-visible,
-.add-btn:focus {
+.add-btn:focus-visible {
   svg {
     fill: var(--white);
   }
@@ -443,6 +439,7 @@ ul {
   }
 
   &__title {
+    margin-bottom: 0;
     font-weight: 700;
     font-size: 18px;
     color: var(--black);
@@ -514,11 +511,6 @@ ul {
     color: var(--firm);
   }
 
-  &__add-btn:focus {
-    box-shadow: none;
-    outline: none;
-  }
-
   &__add-btn:focus-visible {
     color: var(--firm);
     outline: auto;
@@ -533,8 +525,21 @@ ul {
 
 
   .close {
-    width: 35px;
-    height: 35px;
+    background-color: inherit;
+    border: none;
+  }
+
+  .close path {
+    fill: var(--txt-grey);
+    transition: fill .2s ease-in-out;
+  }
+
+  .close:hover path {
+    fill: var(--red);
+  }
+
+  .close:active path {
+    fill: var(--red-active);
   }
 }
 
