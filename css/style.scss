@@ -254,7 +254,8 @@ ul {
   border-color: var(--firm);
 }
 
-.btn-primary:focus-visible {
+.btn-primary:focus-visible,
+.btn-primary:focus {
   color: var(--bs-btn-hover-color);
   background-color: var(--hover);
   border-color: var(--firm);
