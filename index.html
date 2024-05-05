@@ -15,7 +15,7 @@
   <script type="module" src="./js/main.js" defer></script>
 </head>
 
-<body>
+<body class="modal-open">
   <div id="app">
     <main class="main">
       <section class="pt-5 pt-sm-4 pt-xs-4">
@@ -141,7 +141,7 @@
       </button>
 
       <!-- Modal window -->
-      <div class="modal" id="myModal">
+      <div class="modal show" id="myModal" aria-modal="true" style="display: block;">
         <div class="modal-dialog modal-dialog-centered modal__wrapper">
           <div class="modal-content">
 
@@ -175,6 +175,19 @@
               </div>
 
               <div class="modal__contacts d-flex flex-column align-items-center">
+
+                <ul class="modal__list">
+                  <li class="modal__item">
+                    <select name="" id="" class="modal__select">
+                      <option value="">E-mail</option>
+                      <option value="">VK</option>
+                      <option value="">Instagram</option>
+                      <option value="">Телефон</option>
+                    </select>
+                    <input type="text" class="modal__input">
+                  </li>
+                </ul>
+
                 <button type="button" class="btn add-btn modal__add-btn d-flex">
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path

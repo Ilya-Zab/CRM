@@ -466,8 +466,33 @@ ul {
   }
 
   &__contacts {
-    background-color: rgba(200, 197, 209, .4);
-    padding: 0 30px;
+    background-color: rgba(200, 197, 209, .2);
+    padding: 25px 0;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__input {
+    background-color: inherit;
+    border: 2px solid var(--grey); 
+  }
+
+  &__input:focus-visible {
+    outline: 0;
+    border-color: grey;
+  }
+
+  &__select {
+    background-color: #e7e5eb;
+    border: 2px solid var(--grey);
+    font-size: 12px;
   }
 
   &__footer {
@@ -516,10 +541,10 @@ ul {
     outline: auto;
     outline-color: var(--firm);
   }
-  
+
   &__add-btn:focus-visible {
     svg {
-        fill: var(--firm); 
+      fill: var(--firm);
     }
   }
 
