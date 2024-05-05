@@ -64,7 +64,9 @@ ul {
   color: var(--txt-grey);
 }
 
-.h1 {
+.h1,
+.h2,
+.h3 {
   font-family: var(--font-family);
   font-weight: 700;
   font-size: 24px;
@@ -202,7 +204,8 @@ ul {
   color: var(--active);
 }
 
-.change-button:focus-visible {
+.change-button:focus-visible,
+.change-button:focus {
   color: var(--bs-btn-hover-color);
   background-color: var(--white);
   box-shadow: var(--focus-shadow-firm)
@@ -217,16 +220,18 @@ ul {
   color: var(--red);
 }
 
+.delete-button:focus-visible,
+.delete-button:focus {
+  color: var(--bs-btn-hover-color);
+  background-color: var(--white);
+  box-shadow: var(--focus-shadow-red)
+}
+
 .btn.delete-button:active,
 .delete-button.loading {
   color: var(--red-active);
 }
 
-.delete-button:focus-visible {
-  color: var(--bs-btn-hover-color);
-  background-color: var(--white);
-  box-shadow: var(--focus-shadow-red)
-}
 
 .btn {
   font-weight: 500;
@@ -234,6 +239,12 @@ ul {
   font-size: 14px;
   background-color: transparent;
   align-items: center;
+  width: fit-content;
+}
+
+.btn:active {
+  box-shadow: none !important;
+  border-color: none;
 }
 
 .btn-primary {
@@ -247,11 +258,12 @@ ul {
 .btn-primary:hover {
   background-color: var(--hover);
   border-color: var(--firm);
+  box-shadow: none;
 }
 
-.btn.btn-primary:active {
-  background-color: var(--active);
-  border-color: var(--firm);
+.btn-primary:active {
+  background-color: var(--active) !important;
+  border-color: var(--firm) !important;
 }
 
 .btn-primary:focus-visible,
@@ -287,7 +299,8 @@ ul {
   }
 }
 
-.add-btn:focus-visible {
+.add-btn:focus-visible,
+.add-btn:focus {
   svg {
     fill: var(--white);
   }
@@ -420,43 +433,109 @@ ul {
 }
 
 // MODAL
-.modal-dialog {
-  width: 400px;
-  height: 450px;
-
-  &.modal {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.modal-wrapper {
-  background-color: rgba($color: #000000, $alpha: .8);
+.modal {
   width: 100%;
   height: 100%;
-  position: absolute;
-}
 
-.modal-title {
-  font-family: var(--font-family);
-  font-weight: 700;
-  font-size: 18px;
-  color: var(--black);
-}
+  &__wrapper {
+    max-width: 400px;
+    max-height: 450px;
+  }
 
-.modal_ID {
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 12px;
-  color: var(--txt-grey);
-}
+  &__title {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--black);
+  }
 
-.modal-form__sub-title {
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 10px;
-  color: var(--txt-grey);
-  margin: 0;
+  &__sub-title {
+    font-weight: 400;
+    font-size: 10px;
+    color: var(--txt-grey);
+    margin: 0;
+  }
+
+  &__sub-title_ID {
+    font-size: 12px;
+  }
+
+  &__header {
+    border: 0;
+    padding: 25px 30px 16px;
+  }
+
+  &__body {
+    padding: 0px 0px 25px;
+  }
+
+  &__contacts {
+    background-color: rgba(200, 197, 209, .4);
+    padding: 0 30px;
+  }
+
+  &__footer {
+    padding: 0px 30px 24px;
+    border: 0;
+
+    .btn-primary {
+      background-color: var(--firm);
+      color: var(--white);
+      padding: 13px 45px;
+      margin: 0;
+      font-weight: 400;
+    }
+
+    .btn_delete {
+      font-size: 12px;
+      text-decoration: underline;
+      text-decoration-skip-ink: none;
+      padding: 5px;
+      margin-top: 5px;
+    }
+
+    .btn_delete:focus-visible {
+      outline: auto;
+      outline-color: var(--firm);
+    }
+  }
+
+  &__btn-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__add-btn {
+    font-weight: 600;
+    font-size: 14px;
+    gap: 5px;
+  }
+
+  &__add-btn:hover {
+    color: var(--firm);
+  }
+
+  &__add-btn:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  &__add-btn:focus-visible {
+    color: var(--firm);
+    outline: auto;
+    outline-color: var(--firm);
+  }
+  
+  &__add-btn:focus-visible {
+    svg {
+        fill: var(--firm); 
+    }
+  }
+
+
+  .close {
+    width: 35px;
+    height: 35px;
+  }
 }
 
 .form-control {
@@ -473,69 +552,16 @@ ul {
   color: var(--black);
 }
 
+.form-control:focus {
+  box-shadow: none;
+  border-color: var(--firm);
+}
+
+
 .form-group {
   margin: 0 30px;
 
   &:not(:last-child) {
     margin-bottom: 15px;
   }
-}
-
-.modal-header {
-  border: 0;
-  padding: 25px 30px 16px;
-}
-
-.modal-body {
-  padding: 0px 0px 25px;
-}
-
-.modal-footer {
-  display: flex;
-  flex-direction: column;
-  padding: 0px 30px 24px;
-  border: 0;
-
-  .btn-primary {
-    background-color: var(--firm);
-    color: var(--white);
-    padding: 13px 25px;
-    margin: 0;
-
-    font-family: var(--font-family);
-    font-weight: 400;
-    font-size: 14px;
-  }
-
-  .btn-delete {
-    font-family: var(--font-family);
-    font-weight: 400;
-    font-size: 12px;
-    text-decoration: underline;
-    text-decoration-skip-ink: none;
-    color: var(--black);
-  }
-}
-
-.btn__modal-add {
-  font-family: var(--font-family);
-  font-weight: 600;
-  font-size: 14px;
-  color: var(--black);
-  background-color: transparent;
-  display: block;
-  align-self: center;
-}
-
-.modal-contacts {
-  background-color: rgba(200, 197, 209, .4);
-  padding: 0 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.modal__btn-icon {
-  width: 16px;
-  height: 16px;
 }
