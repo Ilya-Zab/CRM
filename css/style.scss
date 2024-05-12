@@ -1,26 +1,6 @@
-:root {
-  --green: #34c759;
-  --orange: #e6b127;
-  --red: #f06a4d;
-  --red-active: #ff2f00;
-  --firm: #9873ff;
-  --firm-opacity: rgba(152, 115, 255, .5);
-  --red-opacity: rgba(240, 106, 77, .5);
-  --hover: #b89eff;
-  --grey: #c8c5d1;
-  --txt-grey: #b0b0b0;
-  --black: #333;
-  --white: #fff;
-  --bg-grey: #f5f5f5;
-  --active: #8052ff;
-  --focus-shadow-firm: 0 0 0 0.25rem var(--firm-opacity);
-  --focus-shadow-firm_socials: 0 0 0 0.15rem var(--firm-opacity);
-  --focus-shadow-red: 0 0 0 0.25rem var(--red-opacity)
-}
+@import './variables';
 
-:root {
-  --font-family: "Open Sans", sans-serif;
-}
+$font-family: "Open Sans", sans-serif;
 
 html {
   box-sizing: border-box;
@@ -43,8 +23,8 @@ img {
 }
 
 body {
-  font-family: var(--font-family);
-  background-color: var(--bg-grey);
+  font-family: $font-family;
+  background-color: $bg-grey;
 }
 
 ul {
@@ -61,16 +41,16 @@ ul {
 }
 
 .text-grey {
-  color: var(--txt-grey);
+  color: $txt-grey;
 }
 
 .h1,
 .h2,
 .h3 {
-  font-family: var(--font-family);
+  font-family: $font-family;
   font-weight: 700;
   font-size: 24px;
-  color: var(--black);
+  color: $black;
 }
 
 .logo-skb {
@@ -90,7 +70,7 @@ ul {
 
     svg {
       path {
-        fill: var(--firm);
+        fill: $firm;
         opacity: .7;
         transition: all ease-in-out .1s;
       }
@@ -100,7 +80,7 @@ ul {
   &__link:hover {
     svg {
       path {
-        fill: var(--firm);
+        fill: $firm;
         opacity: 1;
       }
     }
@@ -113,7 +93,7 @@ ul {
   &__link:active {
     svg {
       path {
-        fill: var(--active);
+        fill: $active;
         opacity: 1;
       }
     }
@@ -121,11 +101,11 @@ ul {
 
   &__link:focus-visible {
     outline-offset: 5px;
-    outline-color: var(--active);
+    outline-color: $active;
 
     svg {
       path {
-        fill: var(--active);
+        fill: $active;
         opacity: 1;
       }
     }
@@ -136,11 +116,11 @@ ul {
     outline: none;
 
     svg {
-      background-color: var(--white);
+      background-color: $white;
       border: none;
       border-radius: 100%;
       outline: 0;
-      box-shadow: var(--focus-shadow-firm_socials)
+      box-shadow: $focus-shadow-firm_socials
     }
 
     .social-svg_path {
@@ -153,7 +133,7 @@ ul {
 .sort-btn {
   display: flex;
   background-color: transparent;
-  color: var(--txt-grey);
+  color: $txt-grey;
   font-weight: 400;
   font-size: 12px;
   border: none;
@@ -167,26 +147,26 @@ ul {
 }
 
 .sort-btn:hover {
-  color: var(--firm);
+  color: $firm;
 }
 
 .sort-btn:active {
-  color: var(--active);
+  color: $active;
 }
 
 .sort-btn:focus-visible {
-  color: var(--hover);
+  color: $hover;
   border: none;
   outline: 0;
-  box-shadow: var(--focus-shadow-firm)
+  box-shadow: $focus-shadow-firm
 }
 
 
 .action-btn {
-  font-family: var(--font-family);
+  font-family: $font-family;
   font-weight: 400;
   font-size: 14px;
-  color: var(--black);
+  color: $black;
   transition: color ease-in-out .1s;
 }
 
@@ -196,18 +176,18 @@ ul {
 }
 
 .change-button:hover {
-  color: var(--hover);
+  color: $hover;
 }
 
 .btn.change-button:active,
 .change-button.loading {
-  color: var(--active);
+  color: $active;
 }
 
 .change-button:focus-visible {
   color: var(--bs-btn-hover-color);
-  background-color: var(--white);
-  box-shadow: var(--focus-shadow-firm)
+  background-color: $white;
+  box-shadow: $focus-shadow-firm
 }
 
 .delete-button {
@@ -216,24 +196,24 @@ ul {
 }
 
 .delete-button:hover {
-  color: var(--red);
+  color: $red;
 }
 
 .delete-button:focus-visible {
   color: var(--bs-btn-hover-color);
-  background-color: var(--white);
-  box-shadow: var(--focus-shadow-red)
+  background-color: $white;
+  box-shadow: $focus-shadow-red
 }
 
 .btn.delete-button:active,
 .delete-button.loading {
-  color: var(--red-active);
+  color: $red-active;
 }
 
 
 .btn {
   font-weight: 500;
-  font-family: var(--font-family);
+  font-family: $font-family;
   font-size: 14px;
   background-color: transparent;
   align-items: center;
@@ -246,30 +226,30 @@ ul {
 }
 
 .btn-primary {
-  border: 1px solid var(--firm);
+  border: 1px solid $firm;
   padding: 12.5px 26.5px;
   font-weight: 600;
-  color: var(--firm);
+  color: $firm;
   border-radius: 0;
 }
 
 .btn-primary:hover {
-  background-color: var(--hover);
-  border-color: var(--firm);
+  background-color: $hover;
+  border-color: $firm;
   box-shadow: none;
 }
 
 .btn-primary:active {
-  background-color: var(--active) !important;
-  border-color: var(--firm) !important;
+  background-color: $active !important;
+  border-color: $firm !important;
 }
 
 .btn-primary:focus-visible {
   color: var(--bs-btn-hover-color);
-  background-color: var(--hover);
-  border-color: var(--firm);
+  background-color: $hover;
+  border-color: $firm;
   outline: 0;
-  box-shadow: var(--focus-shadow-firm)
+  box-shadow: $focus-shadow-firm
 }
 
 .btn_open-modal {
@@ -280,25 +260,25 @@ ul {
 .add-btn {
   svg {
     transition: .15s ease-in-out fill;
-    fill: var(--firm);
+    fill: $firm;
   }
 }
 
 .add-btn:hover {
   svg {
-    fill: var(--white);
+    fill: $white;
   }
 }
 
 .add-btn:active {
   svg {
-    fill: var(--white);
+    fill: $white;
   }
 }
 
 .add-btn:focus-visible {
   svg {
-    fill: var(--white);
+    fill: $white;
   }
 }
 
@@ -329,9 +309,9 @@ ul {
   left: 50%;
   top: -50px;
   transform: translateX(-50%);
-  background-color: var(--black);
+  background-color: $black;
   padding: 7px 14px;
-  color: var(--white);
+  color: $white;
   text-wrap: nowrap;
   visibility: hidden;
 
@@ -343,7 +323,7 @@ ul {
     left: 50%;
     top: 25px;
     transform: translateX(-50%) rotate(45deg);
-    background-color: var(--black);
+    background-color: $black;
   }
 }
 
@@ -353,7 +333,7 @@ ul {
 /* Header */
 .header {
   padding: 20px;
-  background-color: var(--white);
+  background-color: $white;
   box-shadow: 0 3px 6px 0 rgba(176, 190, 197, 0.32), 0 9px 27px 0 rgba(176, 190, 197, 0.32);
 
   &__logo {
@@ -362,11 +342,11 @@ ul {
 
   &__search {
     max-width: 580px;
-    color: var(--black);
-    border-color: var(--txt-grey);
+    color: $black;
+    border-color: $txt-grey;
 
     &::placeholder {
-      color: var(--txt-grey);
+      color: $txt-grey;
     }
   }
 }
@@ -392,7 +372,7 @@ ul {
   &__head {
     th {
       background-color: transparent;
-      color: var(--txt-grey);
+      color: $txt-grey;
       font-weight: 400;
       padding: 8px 15px;
       font-size: 12px;
@@ -403,7 +383,7 @@ ul {
   &__body {
 
     tr {
-      border-bottom: 1px solid var(--grey);
+      border-bottom: 1px solid $grey;
     }
   }
 
@@ -442,13 +422,13 @@ ul {
     margin-bottom: 0;
     font-weight: 700;
     font-size: 18px;
-    color: var(--black);
+    color: $black;
   }
 
   &__sub-title {
     font-weight: 400;
     font-size: 10px;
-    color: var(--txt-grey);
+    color: $txt-grey;
     margin: 0;
   }
 
@@ -481,7 +461,7 @@ ul {
 
   &__input {
     background-color: inherit;
-    border: 2px solid var(--grey);
+    border: 2px solid $grey;
   }
 
   &__input:focus-visible {
@@ -489,32 +469,47 @@ ul {
     border-color: grey;
   }
 
-  &__select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-color: #e7e5eb;
-    border: 2px solid var(--grey);
-    font-size: 12px;
-    outline: none;
-    border-right: none;
-    padding: 5px;
+  &__option {
+    padding: 12px;
+    // background-color: $mischka;
     position: relative;
   }
 
-  &__select::before {
-    content: '';
-    display: block;
-    position: absolute;
-    z-index: 1000;
-    width: 12px;
-    height: 12px;
-    border-top: 2px solid var(--firm);
-    border-right: 2px solid var(--firm);
-    transform: rotate(45deg);
-    right: 0;
-    top: 50%; 
+  &__select {
+    position: relative;
+    background-color: $mischka;
+    font-size: 12px;
+    outline: none;
+    border-right: none;
+    position: relative;
+
+    ul {
+      position: absolute;
+      overflow: hidden;
+      transition: height .5s ease-in-out;
+
+      li {
+        // opacity: ;
+      }
+    }
   }
+
+
+  // &__select::after {
+  //   border: 3px solid red;
+  //   content: "▼";
+  //   padding: 0 8px;
+  //   font-size: 12px;
+  //   position: absolute;
+  //   right: 8px;
+  //   top: 4px;
+  //   z-index: 1;
+  //   text-align: center;
+  //   width: 10%;
+  //   height: 100%;
+  //   pointer-events: none;
+  //   box-sizing: border-box;
+  // }
 
   &__select:focus-visible {
     outline-color: none !important;
@@ -526,8 +521,8 @@ ul {
     border: 0;
 
     .btn-primary {
-      background-color: var(--firm);
-      color: var(--white);
+      background-color: $firm;
+      color: $white;
       padding: 13px 45px;
       margin: 0;
       font-weight: 400;
@@ -543,7 +538,7 @@ ul {
 
     .btn_delete:focus-visible {
       outline: auto;
-      outline-color: var(--firm);
+      outline-color: $firm;
     }
   }
 
@@ -559,18 +554,18 @@ ul {
   }
 
   &__add-btn:hover {
-    color: var(--firm);
+    color: $firm;
   }
 
   &__add-btn:focus-visible {
-    color: var(--firm);
+    color: $firm;
     outline: auto;
-    outline-color: var(--firm);
+    outline-color: $firm;
   }
 
   &__add-btn:focus-visible {
     svg {
-      fill: var(--firm);
+      fill: $firm;
     }
   }
 
@@ -581,36 +576,36 @@ ul {
   }
 
   .close path {
-    fill: var(--txt-grey);
+    fill: $txt-grey;
     transition: fill .2s ease-in-out;
   }
 
   .close:hover path {
-    fill: var(--red);
+    fill: $red;
   }
 
   .close:active path {
-    fill: var(--red-active);
+    fill: $red-active;
   }
 }
 
 .form-control {
   border: none;
-  border-bottom: 1px solid var(--grey);
+  border-bottom: 1px solid $grey;
   border-radius: 0;
   margin: 0;
   padding: 0;
   height: initial;
 
-  font-family: var(--font-family);
+  font-family: $font-family;
   font-weight: 600;
   font-size: 14px;
-  color: var(--black);
+  color: $black;
 }
 
 .form-control:focus {
   box-shadow: none;
-  border-color: var(--firm);
+  border-color: $firm;
 }
 
 
