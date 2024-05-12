@@ -481,7 +481,7 @@ ul {
 
   &__input {
     background-color: inherit;
-    border: 2px solid var(--grey); 
+    border: 2px solid var(--grey);
   }
 
   &__input:focus-visible {
@@ -498,11 +498,27 @@ ul {
     font-size: 12px;
     outline: none;
     border-right: none;
+    padding: 5px;
+    position: relative;
   }
 
-  &__select:focus-visible { 
-    outline-color: none!important;
-    border-color: red;
+  &__select::before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1000;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid var(--firm);
+    border-right: 2px solid var(--firm);
+    transform: rotate(45deg);
+    right: 0;
+    top: 50%; 
+  }
+
+  &__select:focus-visible {
+    outline-color: none !important;
+    border-color: grey;
   }
 
   &__footer {
