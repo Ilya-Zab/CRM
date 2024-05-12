@@ -471,12 +471,14 @@ ul {
 
   &__option {
     padding: 12px;
-    // background-color: $mischka;
-    position: relative;
+  }
+
+  &__option-list {
+    overflow: hidden;
+    background-color: red;
   }
 
   &__select {
-    position: relative;
     background-color: $mischka;
     font-size: 12px;
     outline: none;
@@ -486,11 +488,11 @@ ul {
     ul {
       position: absolute;
       overflow: hidden;
-      transition: height .5s ease-in-out;
+      transition: max-height .5s ease-in-out;
+    }
 
-      li {
-        // opacity: ;
-      }
+    &__option {
+      overflow: hidden;
     }
   }
 
