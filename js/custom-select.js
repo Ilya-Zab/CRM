@@ -1,40 +1,54 @@
 document.addEventListener('DOMContentLoaded', () => {
     const modalSelect = document.querySelector('.modal__select');
     const selectOptionList = modalSelect.querySelector('.modal__option-list')
-    const selectOptions = modalSelect.querySelector('[data-select="select-options"]');
     const modalOption = modalSelect.querySelector('.modal__option');
-    console.log(modalOption)
+    const selectOptions = document.querySelector('[data-select="select-options"]')
+
+    function consoleLog(eventTarget) {
+        if(!eventTarget.contains(selectOptionList)) {
+           console.log('clicked outside')
+        }
+    }
 
     function openCustomSelect(selectList) {
         if (!selectList) return;
-        const selectHeight = document.querySelector('[data-select="select-options"]').offsetHeight;
-
-        // selectList.style.maxHeight = 0;
+        const selectHeight = selectOptions.offsetHeight;
 
         if (selectList.classList.contains('open')) {
             selectList.classList.remove('open');
             selectList.style.height = '0';
-            selectList.style.border = 'none';
+            modalOption.classList.remove('modal__option_arrow-rotate')
 
-            modalOption.classList.remove('modal__option_arrow-45')
-            modalOption.classList.add('modal__option_arrow-225')
-            console.log(modalOption)
+
+
+            window.addEventListener('click', () => consoleLog(event.target))
         } else {
             selectList.classList.add('open');
             selectList.style.height = `${selectHeight}px`;
-            selectList.style.border = '2px solid #c8c5d1';
             selectList.style.borderTop = 'none';
-            
-            modalOption.classList.remove('modal__option_arrow-225')
-            modalOption.classList.add('modal__option_arrow-45')
-            console.log(modalOption)
+            modalOption.classList.add('modal__option_arrow-rotate')
+        }
+    }
+
+    function setOptionHandler(list, eventName, callBack) {
+        for (const li of list) {
+            if (li) {
+                li.addEventListener(eventName, callBack)
+            }
         }
     }
 
     if (modalSelect) {
         modalSelect.addEventListener('click', () => {
             openCustomSelect(selectOptionList);
-            console.log('select clicked');
+        })
+
+        setOptionHandler(selectOptions.children, 'click', (event) => {
+            const itemContent = event.target.textContent.trim()
+
+            if (itemContent) {
+                modalOption.textContent = itemContent
+            }
         })
     }
 });
