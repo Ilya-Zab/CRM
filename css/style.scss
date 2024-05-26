@@ -462,6 +462,7 @@ ul {
   &__input {
     background-color: inherit;
     border: 2px solid $grey;
+    border-left: none;
   }
 
   &__input:focus-visible {
@@ -470,12 +471,47 @@ ul {
   }
 
   &__option {
-    padding: 12px;
+    padding: 10px 60px 10px 12px;
+    overflow: hidden;
+    border: 2px solid $grey;
+    position: relative;
+    transition: transform .2s ease-in-out;
+  }
+
+  &__option_arrow-225::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid $firm;
+    border-left: 2px solid $firm;
+    transform: rotate(225deg);
+    right: 10px;
+    top: 12px;
+  }
+
+  &__option_arrow-45::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid $firm;
+    border-left: 2px solid $firm;
+    transform: rotate(45deg);
+    right: 10px;
+    top: 17px;
   }
 
   &__option-list {
     overflow: hidden;
     background-color: red;
+    width: 100%;
+    // border: 2px solid $grey;
+    position: absolute;
+
+    .open {
+      background-color: red;
+    }
   }
 
   &__select {
@@ -489,29 +525,16 @@ ul {
       position: absolute;
       overflow: hidden;
       transition: max-height .5s ease-in-out;
+      width: 100%;
+      border-top: none;
     }
 
-    &__option {
-      overflow: hidden;
+    li {
+      padding: 10px 32px 10px 12px;
+      background-color: #F4F3F6;
     }
+
   }
-
-
-  // &__select::after {
-  //   border: 3px solid red;
-  //   content: "▼";
-  //   padding: 0 8px;
-  //   font-size: 12px;
-  //   position: absolute;
-  //   right: 8px;
-  //   top: 4px;
-  //   z-index: 1;
-  //   text-align: center;
-  //   width: 10%;
-  //   height: 100%;
-  //   pointer-events: none;
-  //   box-sizing: border-box;
-  // }
 
   &__select:focus-visible {
     outline-color: none !important;
