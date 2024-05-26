@@ -471,14 +471,16 @@ ul {
   }
 
   &__option {
-    padding: 10px 60px 10px 12px;
+    padding: 10px;
     overflow: hidden;
     border: 2px solid $grey;
     position: relative;
     transition: transform .2s ease-in-out;
+    cursor: pointer;
+    min-width: 123px;
   }
 
-  &__option_arrow-225::after {
+  &__option::after {
     content: '';
     position: absolute;
     width: 10px;
@@ -490,7 +492,7 @@ ul {
     top: 12px;
   }
 
-  &__option_arrow-45::after {
+  &__option_arrow-rotate::after {
     content: '';
     position: absolute;
     width: 10px;
@@ -504,13 +506,11 @@ ul {
 
   &__option-list {
     overflow: hidden;
-    background-color: red;
     width: 100%;
-    // border: 2px solid $grey;
     position: absolute;
 
-    .open {
-      background-color: red;
+    &.open {
+      border: 2px solid $grey;
     }
   }
 
@@ -530,8 +530,13 @@ ul {
     }
 
     li {
-      padding: 10px 32px 10px 12px;
+      padding: 10px;
       background-color: #F4F3F6;
+      cursor: pointer;
+    }
+
+    li:hover {
+      background-color: #E7E5EB;
     }
 
   }
