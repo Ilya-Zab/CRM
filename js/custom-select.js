@@ -5,12 +5,19 @@ document.addEventListener('DOMContentLoaded', () =>
     const modalOption = modalSelect.querySelector('.modal__option');
     const selectOptions = document.querySelector('[data-select="select-options"]')
 
-    function closeCustomSelect(target)
-    {
-        // Родителя и всех его детей. Клик элемент не список и не его дети. И проверить что он активен.
-        console.log(target.parentElement);
-        console.log(target.parentElement.classList.contains('modal__option'));
+    function closeCustomSelect(target) {
+
+        if(
+            target.parentElement === selectOptions ||
+            target.parentElement === modalSelect
+        ) {
+            console.log('you cant close')
+        } else {
+            console.log('you can close')
+        }
+
     }
+    
 
     function openCustomSelect(selectList)
     {
